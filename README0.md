@@ -12,25 +12,34 @@ Demo Framework to Showcase Test Engineering Automation
 # Setup Instructions
 Make sure you are running a Ruby dev env on macos. This project utilizes ruby 3.0.1.
 * Build the container with:
-   *   docker build -t independalite .
+   *   docker build -t testing_with_mike .
 * Just run the container:
-   * docker container run -it independalite
+   * docker container run -it testing_with_mike
 * Run the container and drop me at a prompt:
-   * docker container run -it independalite /bin/bash
+   * docker container run -it testing_with_mike /bin/bash
 * To run tests:
    * Single Docker Run
-    * docker container run -it independalite bundle exec rspec
-    * docker container run -it independalite bundle exec rspec --tag the_internet
-    * docker container run -it independalite bundle exec rspec --tag context_menu
-   * Running container at a prompt:
-    * bundle exec rspec --tag the_internet
-    * bundle exec rspec --tag dropdown
-    * bundle exec rspec --tag context_menu
-    * bundle exec rspec --tag floating_menu
+    * docker container run -it testing_with_mike bundle exec rspec
+    * docker container run -it testing_with_mike bundle exec rspec --tag home_page
+    * docker container run -it testing_with_mike bundle exec rspec --tag demoblaze
+   * Running container at a prompt by tag:
+    * Tags: demoblaze, smoke, home_page, nav_menu, demo_blaze_api, api
+    * Examples:
+    * bundle exec rspec --tag demoblaze
+    * bundle exec rspec --tag demoblaze home_page
+
  * How to run and look inside a running container
-   * docker container run -it independalite /bin/bash
+   * docker container run -it testing_with_mike /bin/bash
  * To run the docker and the specified tests
-   * docker container run -it independalite bundle exec rspec -tag the_internet
+   * docker container run -it testing_with_mike bundle exec rspec -tag demoblaze
+
+# Tests
+UI/UX Tests
+ 1. Test-Ticket Given a Home page, when user(s) visit, then verify all elements on the page load.
+ 2. Test-Ticket Given an account, when user(s) need to log in, then verify user path to login works as expected.
+
+API Tests
+ 1. Test-Ticket Given a service, when user(s) visit the home page, then the page, elements, and data are returned.
 
 # Development tickets
 * Story: Scaffold Running Framework, 4 - 8 running tests, Folder Struct and tune
@@ -50,15 +59,6 @@ Make sure you are running a Ruby dev env on macos. This project utilizes ruby 3.
 6. <a href="https://github.com/WardropMike/independalite/blob/master/spec/spec_helper.rb">Spec Helper</a>
 7. <a href="https://github.com/WardropMike/independalite/blob/master/Dockerfile">Re-write Dockerfile (Git Link)</a>
 
-# Tests
-1. Ticket <a href="https://trello.com/c/sOBOhdA9/11-complete-third-challenge-test-dropdown-select">Dropdown test task Ticket</a>
- * a. <a href="https://github.com/WardropMike/independalite/blob/master/spec/component_2/functions/heroku_challenge_spec.rb">Dropdown Test (Git Link)</a>
-2. Ticket <a href="https://trello.com/c/ulrgczoE/10-complete-second-challenge-test-float-menu">Floating Menu</a>
- * b. <a href="https://github.com/WardropMike/independalite/blob/master/spec/component_2/functions/heroku_challenge_two_spec.rb">Floating Menu (Git Link)</a>
-3. Ticket <a href="https://trello.com/c/fRTs1cJG/9-complete-first-challenge-test-context-menu">Context Menu Ticket</a>
- * c. <a href="https://github.com/WardropMike/independalite/blob/master/spec/component_2/functions/heroku_challenge_two_spec.rb">Context Menu (Git Link)</a>
-# API Tests
- * <a href="https://github.com/WardropMike/independalite/blob/master/spec/component_1/functions/check_component_1_spec.rb">API Tests (Git Link)</a>
 
 # Tags
  * Setup Tags on spec files

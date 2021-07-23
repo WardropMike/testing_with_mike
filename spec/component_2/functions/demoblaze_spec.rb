@@ -23,7 +23,7 @@ describe 'As a demoblaze app, I display content', :demoblaze => true do
         check_footer
       end
 
-      scenario "HomePage menu item(s)", :nav_many => true do
+      scenario "HomePage menu item(s)", :nav_menu => true do
         visit(demoblaze_page)
         click_signup
         sign_up_new(demo_user, demo_pw, expected_prompt_text)

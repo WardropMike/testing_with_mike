@@ -13,7 +13,6 @@ module DemoblazersHelpers
 
   def check_navigation_bar
     assert_selector('nav#narvbarx')
-
   end
 
   def check_banner_menu_items
@@ -27,7 +26,6 @@ module DemoblazersHelpers
 
   def check_coursel
     assert_selector('img.d-block')
-
   end
 
   def check_categories
@@ -39,7 +37,9 @@ module DemoblazersHelpers
     actual = page.all('div#contcont .list-group a').map(&:text)
     actual.include?(expect_invlude)
     list_count = page.all('div#contcont .list-group a').count
+
     expect(list_count).to eq 4
+
     assert_selector('div#contcont .list-group a', text: 'Phones')
     assert_selector('div#contcont .list-group a', text: 'Laptops')
     assert_selector('div#contcont .list-group a', text: 'Monitors')
@@ -65,18 +65,21 @@ module DemoblazersHelpers
   def sign_up_new(user, creds, expected_prompt_text)
     user_field = 'div input#sign-username'
     pw_field = 'div input#sign-password'
+
     find(user_field).send_keys(user)
     find(pw_field).send_keys(creds)
     assert_selector('button', text: 'Close')
     assert_selector('button', text: 'Sign')
     trigger_prompt
+
     actual_prompt_text = page.driver.browser.switch_to.alert.text
+
     until actual_prompt_text == expected_prompt_text
       page.all('div', wait: 10).count
       counter = page.all('div', wait: 10).count
       actual_prompt_text = page.driver.browser.switch_to.alert.text
     end
-    # wait_for_sector(page.driver.browser.switch_to.alert.text)
+
     actual_prompt_text = page.driver.browser.switch_to.alert.text
     if actual_prompt_text == true
       page.driver.browser.switch_to.alert.accept
@@ -88,17 +91,15 @@ module DemoblazersHelpers
     user_field = 'div input#sign-username'
     pw_field = 'div input#sign-password'
     page.driver.browser.switch_to.alert.accept
-    binding.pry
-    # Check if dirty un and pw then continue 
-    find(user_field).send_keys(user)
-    find(pw_field).send_keys(creds)
-    find('button', text: 'Log in').click
+    find('button', text: 'Close').click
   end
 
   def verify_cart_page_loads
-    binding.pry
+    find('div#navbarExample a#cartur').click
     assert_selector('div.table-responsive')
   end
 
-
+  def check_page_url(current_url, expected_url)
+    expect(current_url).to eq expected_url
+  end
 end

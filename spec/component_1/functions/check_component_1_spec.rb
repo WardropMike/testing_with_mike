@@ -1,4 +1,4 @@
-describe 'As a framework I run tests for APIs', :demo_blaze => true do
+describe 'As a framework I run tests for APIs', :demo_blaze_api => true do
   let(:site_url) { "www.demoblaze.com/" }
   let(:expected_response_code) { 200 }
   # Placeholder for JSON obj for resuest

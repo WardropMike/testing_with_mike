@@ -13,7 +13,6 @@ describe 'As a framework I run tests on a browser and network servies', :health_
 
       scenario 'check element on page' do
         visit(expected_url)
-        check_element_on_page
       end
     end
   end
