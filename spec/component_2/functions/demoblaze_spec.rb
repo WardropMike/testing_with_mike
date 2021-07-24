@@ -10,8 +10,11 @@ describe 'As a demoblaze app, I display content', :demoblaze => true do
 
     context 'visit demoblaze page checks all main elements load', :smoke => true do
 
-      scenario "Home Page item(s)", :home_page => true do
+      before(:each) do
         visit(demoblaze_page)
+      end
+
+      scenario "Home Page item(s)", :home_page => true do
         check_company_banner_link
         check_company_banner_logo(demoblaze_banner_logo)
         check_navigation_bar
@@ -24,7 +27,6 @@ describe 'As a demoblaze app, I display content', :demoblaze => true do
       end
 
       scenario "HomePage menu item(s)", :nav_menu => true do
-        visit(demoblaze_page)
         click_signup
         sign_up_new(demo_user, demo_pw, expected_prompt_text)
         sign_in(demo_user, demo_pw)

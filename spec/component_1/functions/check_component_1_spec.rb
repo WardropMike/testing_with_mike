@@ -5,8 +5,9 @@ describe 'As a framework I run tests for APIs', :demo_blaze_api => true do
   # Placeholder for JSON obj for assertion
 
   feature 'Call API to check', :api => true do
-    # setup(placeholder)
+
     context 'Verify demoblaze API parts', :context => true do
+
       scenario 'Call demoblaze for response code', :response_code => true do
         response = call_api(site_url)
         check_response_code(response.code, expected_response_code)
